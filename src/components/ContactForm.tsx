@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
+import contactQuoteImage from '../assets/site/section-contact-quote.jpg';
 import { services } from '../data/services';
 
 export function ContactForm() {
@@ -30,6 +31,13 @@ export function ContactForm() {
               Location: Mayo, Ireland and surrounding areas
             </p>
           </div>
+          <figure className="mt-8 overflow-hidden rounded-lg border border-line bg-slate-50 shadow-sm">
+            <img
+              src={contactQuoteImage}
+              alt="A desk prepared for a network consultation with laptop, router, cable tester, ethernet cable, phone, and network plan"
+              className="h-72 w-full object-cover"
+            />
+          </figure>
         </div>
 
         <form className="rounded-lg border border-line bg-slate-50 p-5 shadow-sm sm:p-6">

@@ -19,6 +19,9 @@ import { ProcessSteps } from './components/ProcessSteps';
 import { ServicesGrid } from './components/ServicesGrid';
 import { WorkCarousel } from './components/WorkCarousel';
 import { services } from './data/services';
+import cleanInstallationImage from './assets/site/section-clean-installation.jpg';
+import localBusinessesImage from './assets/site/section-local-businesses.jpg';
+import networkProblemsImage from './assets/site/section-network-problems.jpg';
 
 const problems = [
   'Slow WiFi',
@@ -92,21 +95,34 @@ function App() {
 
         <section className="bg-white py-16 sm:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
-                The problem
-              </p>
-              <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">
-                Network problems cost you time and money
-              </h2>
-              <p className="mt-5 text-base leading-7 text-muted">
-                When the network is unreliable, everything else gets harder.
-                Staff lose time, customers wait, card machines fail, phones drop,
-                and nobody is quite sure where the issue starts. We make the
-                setup clearer, more reliable, and easier to support.
-              </p>
+            <div className="flex flex-col justify-between gap-8">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
+                  The problem
+                </p>
+                <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">
+                  Network problems cost you time and money
+                </h2>
+                <p className="mt-5 text-base leading-7 text-muted">
+                  When the network is unreliable, everything else gets harder.
+                  Staff lose time, customers wait, card machines fail, phones drop,
+                  and nobody is quite sure where the issue starts. We make the
+                  setup clearer, more reliable, and easier to support.
+                </p>
+              </div>
+              <figure className="overflow-hidden rounded-lg border border-line bg-slate-50 shadow-sm">
+                <img
+                  src={networkProblemsImage}
+                  alt="A small business back office network setup with tangled cables, router equipment, phone, and diagnostic laptop"
+                  className="h-72 w-full object-cover"
+                />
+                <figcaption className="border-t border-line px-5 py-4 text-sm font-semibold text-muted">
+                  From unclear cabling and old routers to systems nobody can
+                  explain, the first job is making the problem visible.
+                </figcaption>
+              </figure>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid content-center gap-3 sm:grid-cols-2">
               {problems.map((problem) => (
                 <div
                   key={problem}
@@ -155,6 +171,13 @@ function App() {
               <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">
                 Practical IT help for places that do not have in-house support
               </h2>
+              <figure className="mt-8 overflow-hidden rounded-lg border border-line bg-slate-50 shadow-sm">
+                <img
+                  src={cleanInstallationImage}
+                  alt="A clean small office network cabinet with organized blue patch cables, router, switch, access point, laptop, and toolkit"
+                  className="h-80 w-full object-cover"
+                />
+              </figure>
             </div>
             <div className="space-y-5 text-base leading-7 text-muted">
               <p>
@@ -183,6 +206,13 @@ function App() {
                 Local support for everyday network problems
               </h2>
             </div>
+            <figure className="mt-10 overflow-hidden rounded-lg border border-line bg-white shadow-sm">
+              <img
+                src={localBusinessesImage}
+                alt="A local small business counter with point-of-sale tablet, card terminal, laptop, WiFi access point, and network equipment"
+                className="h-80 w-full object-cover sm:h-96"
+              />
+            </figure>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {customers.map((customer) => (
                 <article
