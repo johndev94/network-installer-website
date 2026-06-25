@@ -10,6 +10,23 @@ npm run dev
 npm run build
 ```
 
+## Host the production site
+
+Build the site, then serve the generated `dist` folder with the included Node server:
+
+```powershell
+npm.cmd run build
+npm.cmd run serve
+```
+
+By default this listens on port `8080`. To host on port `80` for router port forwarding, run PowerShell as Administrator and start it with:
+
+```powershell
+$env:PORT='80'; npm.cmd run serve
+```
+
+The server binds to `0.0.0.0`, so other devices on your network can reach it using this computer's LAN IP address. Forward external port `80` on your router to this computer's LAN IP and port `80`. Make sure Windows Firewall allows inbound TCP traffic on port `80`.
+
 ## Edit service prices
 
 All service names, descriptions, features, prices, and badges live in:
