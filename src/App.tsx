@@ -101,7 +101,7 @@ function App() {
                   The problem
                 </p>
                 <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">
-                  Network problems cost you time and money
+                  Network problems cost you time and money and TESTING
                 </h2>
                 <p className="mt-5 text-base leading-7 text-muted">
                   When the network is unreliable, everything else gets harder.
