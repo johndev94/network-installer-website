@@ -1,13 +1,9 @@
 import {
-  Building2,
   Cable,
-  Headphones,
-  Home,
-  KeyRound,
+  Camera,
   Network,
   Router,
-  ServerCog,
-  Shield,
+  ShieldCheck,
   Wifi,
 } from 'lucide-react';
 import { services } from '../data/services';
@@ -29,11 +25,11 @@ const overviewServices = [
     icon: Router,
   },
   {
-    name: 'VPN Setup',
+    name: 'CCTV Installation',
     description:
-      'Remote access and site-to-site VPN setup for staff, offices, and approved users.',
-    serviceId: 'vpn-setup',
-    icon: KeyRound,
+      'Professionally planned camera systems with clear coverage and remote viewing.',
+    serviceId: 'small-business-network-setup',
+    icon: Camera,
   },
   {
     name: 'Access Point Installation',
@@ -43,39 +39,11 @@ const overviewServices = [
     icon: Network,
   },
   {
-    name: 'Switching & VLANs',
+    name: 'Network Security',
     description:
-      'Switch setup and practical network separation for offices and guest access.',
+      'Firewalls, secure remote access and practical protection for connected systems.',
     serviceId: 'small-business-network-setup',
-    icon: ServerCog,
-  },
-  {
-    name: 'Guest WiFi Setup',
-    description:
-      'Separate guest WiFi for cafes, pubs, restaurants, shops, offices, and clinics.',
-    serviceId: 'small-business-network-setup',
-    icon: Shield,
-  },
-  {
-    name: 'Home Office Setup',
-    description:
-      'Reliable WiFi, laptop connectivity, printers, VPN help, and basic security checks.',
-    serviceId: 'home-office-setup',
-    icon: Home,
-  },
-  {
-    name: 'Remote Support',
-    description:
-      'Focused remote assistance for router, WiFi, VPN, and configuration questions.',
-    serviceId: 'remote-support-session',
-    icon: Headphones,
-  },
-  {
-    name: 'Monthly Support Plans',
-    description:
-      'Ongoing help for small businesses that need regular support and check-ins.',
-    serviceId: 'monthly-support-starter',
-    icon: Building2,
+    icon: ShieldCheck,
   },
   {
     name: 'Network Troubleshooting',
@@ -95,11 +63,11 @@ export function ServicesGrid() {
             Services
           </p>
           <h2 className="mt-3 text-3xl font-black text-ink sm:text-4xl">
-            Network installation and support without the mystery
+            Everything you need to connect and protect
           </h2>
           <p className="mt-4 text-base leading-7 text-muted">
-            Choose the service that fits your issue, or get in touch and we will
-            recommend the simplest practical option.
+            Practical solutions for homes and small businesses, installed and
+            explained by a local team.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

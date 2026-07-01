@@ -24,13 +24,13 @@ const slides = [
     bullets: ['Router optimisation', 'VPN assistance', 'Laptop and printer setup'],
   },
   {
-    title: 'Troubleshooting with a clear next step',
-    eyebrow: 'Fault finding and support',
+    title: 'Security and CCTV that work together',
+    eyebrow: 'Protection for homes and businesses',
     description:
-      'When the network is unreliable, we check the router, switch, WiFi, cabling, and configuration before recommending changes.',
+      'Secure networks and carefully positioned cameras help protect your premises, systems and people.',
     image: networkSupport,
-    alt: 'Technician troubleshooting a small business network cabinet with laptop diagnostics',
-    bullets: ['On-site diagnosis', 'Switch and router checks', 'Plain-English report'],
+    alt: 'Technician configuring security equipment and network monitoring from a laptop',
+    bullets: ['CCTV planning', 'Remote viewing', 'Network security checks'],
   },
 ];
 

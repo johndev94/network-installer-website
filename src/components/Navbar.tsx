@@ -5,8 +5,6 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
   { label: 'Prices', href: '#prices' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -23,8 +21,11 @@ export function Navbar() {
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-white">
             <Network size={22} aria-hidden="true" />
           </span>
-          <span className="text-base font-bold text-ink sm:text-lg">
-            Business Name
+          <span className="leading-tight text-ink">
+            <span className="block text-xl font-black">RDNS</span>
+            <span className="hidden text-xs font-semibold text-muted sm:block">
+              Ryan &amp; Devaney Network Solutions
+            </span>
           </span>
         </a>
 

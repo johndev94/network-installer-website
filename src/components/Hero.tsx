@@ -6,11 +6,9 @@ import {
 import heroImage from '../assets/site/hero-network-installation.jpg';
 
 const trustBullets = [
-  'Local installation',
-  'Clear fixed pricing',
-  'Business and home support',
-  'Remote and on-site help',
-  'No confusing jargon',
+  'Local service in Mayo',
+  'Networking and WiFi',
+  'Security and CCTV',
 ];
 
 export function Hero() {
@@ -32,15 +30,14 @@ export function Hero() {
         <div className="flex flex-col justify-center">
           <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm font-bold text-brand-100 shadow-sm backdrop-blur">
             <ShieldCheck size={18} aria-hidden="true" />
-            Practical network installation in Mayo
+            Ryan &amp; Devaney Network Solutions
           </p>
           <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
-            Reliable WiFi, router, VPN and network installation for homes and
-            small businesses
+            Networks, security and CCTV installed properly
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-            Professional setup and troubleshooting for business WiFi, routers,
-            firewalls, VPNs, switches, and home office networks.
+            RDNS provides reliable WiFi, network installation, cybersecurity
+            solutions and CCTV systems for homes and businesses across Mayo.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -53,7 +50,7 @@ export function Hero() {
               href="#prices"
               className="inline-flex items-center justify-center rounded-md border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
             >
-              View Services & Prices
+              Explore Our Services
             </a>
           </div>
           <ul className="mt-8 grid gap-3 text-sm font-semibold text-white sm:grid-cols-2">
@@ -76,7 +73,7 @@ export function Hero() {
               <div>
                 <p className="text-sm text-slate-200">Typical site visit</p>
                 <h2 className="mt-1 text-2xl font-black">
-                  Install, test, explain, hand over
+                  Connected. Secure. Protected.
                 </h2>
               </div>
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-brand-500 text-white">
@@ -84,7 +81,7 @@ export function Hero() {
               </span>
             </div>
             <div className="grid grid-cols-3 gap-3">
-              {['WiFi', 'Router', 'VPN'].map((item) => (
+              {['WiFi', 'Security', 'CCTV'].map((item) => (
                 <div
                   key={item}
                   className="rounded-md border border-white/15 bg-white/10 p-3"

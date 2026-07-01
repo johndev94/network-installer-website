@@ -9,11 +9,16 @@ export function Footer() {
             <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600">
               <Network size={22} aria-hidden="true" />
             </span>
-            <p className="text-lg font-black">Business Name Placeholder</p>
+            <div>
+              <p className="text-xl font-black">RDNS</p>
+              <p className="text-xs text-slate-300">
+                Ryan &amp; Devaney Network Solutions
+              </p>
+            </div>
           </div>
           <p className="mt-4 text-sm leading-6 text-slate-300">
-            Independent network installation and support service. Brand names
-            mentioned are trademarks of their respective owners.
+            Local networking, security and CCTV solutions for homes and
+            businesses across Mayo.
           </p>
         </div>
         <div>
@@ -21,8 +26,8 @@ export function Footer() {
             Services
           </h2>
           <p className="mt-4 text-sm leading-6 text-slate-300">
-            WiFi installation, router and firewall setup, VPNs, access points,
-            guest WiFi, home office setup, troubleshooting, and monthly support.
+            WiFi, network installation, firewalls, secure remote access, CCTV
+            systems and troubleshooting.
           </p>
         </div>
         <div>
@@ -35,8 +40,7 @@ export function Footer() {
             <p>Location: Mayo, Ireland and surrounding areas</p>
           </div>
           <p className="mt-6 text-xs text-slate-400">
-            © {new Date().getFullYear()} Business Name Placeholder. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} RDNS. All rights reserved.
           </p>
         </div>
       </div>
