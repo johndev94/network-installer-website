@@ -1,8 +1,44 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { CheckCircle2, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 import contactQuoteImage from '../assets/site/section-contact-quote.jpg';
 import { services } from '../data/services';
 
 export function ContactForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus('sending');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/johndevaney1@hotmail.com',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      form.reset();
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="bg-white py-16 sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
@@ -24,7 +60,9 @@ export function ContactForm() {
             </p>
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
               <Mail className="text-brand-600" size={20} aria-hidden="true" />
-              Email: Add your email address
+              <a href="mailto:johndevaney1@hotmail.com" className="hover:text-brand-700">
+                johndevaney1@hotmail.com
+              </a>
             </p>
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
               <MapPin className="text-brand-600" size={20} aria-hidden="true" />
@@ -40,8 +78,16 @@ export function ContactForm() {
           </figure>
         </div>
 
-        <form className="rounded-lg border border-line bg-slate-50 p-5 shadow-sm sm:p-6">
-          {/* TODO: Connect this form to Formspree, Netlify Forms, EmailJS, or a backend API before launch. */}
+        <form
+          className="rounded-lg border border-line bg-slate-50 p-5 shadow-sm sm:p-6"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="_subject" value="New RDNS website enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <label className="hidden" aria-hidden="true">
+            Leave this field empty
+            <input name="_honey" type="text" tabIndex={-1} autoComplete="off" />
+          </label>
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-bold text-ink">
               Name
@@ -50,6 +96,7 @@ export function ContactForm() {
                 name="name"
                 type="text"
                 autoComplete="name"
+                required
               />
             </label>
             <label className="grid gap-2 text-sm font-bold text-ink">
@@ -59,6 +106,7 @@ export function ContactForm() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                required
               />
             </label>
             <label className="grid gap-2 text-sm font-bold text-ink">
@@ -111,14 +159,28 @@ export function ContactForm() {
             <textarea
               className="min-h-36 rounded-md border border-line bg-white px-3 py-3 text-sm font-normal outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
               name="message"
+              required
             />
           </label>
           <button
-            type="button"
-            className="mt-5 w-full rounded-md bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700 sm:w-auto"
+            type="submit"
+            disabled={status === 'sending'}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-wait disabled:opacity-70 sm:w-auto"
           >
-            Send enquiry
+            {status === 'sending' && <LoaderCircle className="animate-spin" size={18} />}
+            {status === 'sending' ? 'Sending...' : 'Send enquiry'}
           </button>
+          {status === 'sent' && (
+            <p className="mt-4 flex items-center gap-2 text-sm font-semibold text-emerald-700" role="status">
+              <CheckCircle2 size={18} aria-hidden="true" />
+              Thanks, your enquiry has been sent.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="mt-4 text-sm font-semibold text-red-700" role="alert">
+              We could not send your enquiry. Please email johndevaney1@hotmail.com directly.
+            </p>
+          )}
         </form>
       </div>
     </section>

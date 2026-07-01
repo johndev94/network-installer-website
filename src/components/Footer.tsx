@@ -36,7 +36,12 @@ export function Footer() {
           </h2>
           <div className="mt-4 space-y-2 text-sm text-slate-300">
             <p>Phone: Add your phone number</p>
-            <p>Email: Add your email address</p>
+            <p>
+              Email:{' '}
+              <a href="mailto:johndevaney1@hotmail.com" className="hover:text-white">
+                johndevaney1@hotmail.com
+              </a>
+            </p>
             <p>Location: Mayo, Ireland and surrounding areas</p>
           </div>
           <p className="mt-6 text-xs text-slate-400">
