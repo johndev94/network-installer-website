@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85mm" height="55mm" viewBox="0 0 850 550" role="img" aria-labelledby="title desc">
+  <title id="title">RDNS business card back</title>
+  <desc id="desc">Shared print-ready back artwork for RDNS business cards.</desc>
+  <defs>
+    <linearGradient id="back-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbfd"/>
+      <stop offset="0.72" stop-color="#eef7ff"/>
+      <stop offset="1" stop-color="#d1faef"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f9f82"/>
+      <stop offset="1" stop-color="#1769c2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="850" height="550" fill="url(#back-bg)"/>
+  <circle cx="774" cy="36" r="180" fill="#0f9f82" opacity="0.12"/>
+  <circle cx="95" cy="505" r="220" fill="#1769c2" opacity="0.10"/>
+  <path d="M612 0 C720 85 784 181 805 288 C710 264 601 290 477 367 C350 446 217 486 78 488 C185 407 249 307 272 188 C296 61 410 -1 612 0 Z" fill="#ffffff" opacity="0.78"/>
+
+  <g transform="translate(80 70)">
+    <rect width="82" height="82" rx="18" fill="#102033"/>
+    <g stroke="#d1faef" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M25 42 H57"/>
+      <path d="M41 25 V59"/>
+      <circle cx="25" cy="42" r="7" fill="#102033"/>
+      <circle cx="57" cy="42" r="7" fill="#102033"/>
+      <circle cx="41" cy="25" r="7" fill="#102033"/>
+      <circle cx="41" cy="59" r="7" fill="#102033"/>
+    </g>
+  </g>
+  <text x="184" y="103" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="850">RDNS</text>
+  <text x="184" y="136" fill="#087d6c" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">Ryan &amp; Devaney Network Solutions</text>
+
+  <text x="80" y="235" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="850">Connect. Secure. Protect.</text>
+  <text x="80" y="278" fill="#5d6d7d" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Reliable networking, WiFi, security and CCTV support across Mayo.</text>
+
+  <g transform="translate(80 342)" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">
+    <g>
+      <rect width="166" height="52" rx="12" fill="#102033"/>
+      <text x="20" y="33" fill="#ffffff">WiFi Installs</text>
+    </g>
+    <g transform="translate(184 0)">
+      <rect width="188" height="52" rx="12" fill="#0f9f82"/>
+      <text x="20" y="33" fill="#ffffff">Network Setup</text>
+    </g>
+    <g transform="translate(390 0)">
+      <rect width="154" height="52" rx="12" fill="#1769c2"/>
+      <text x="20" y="33" fill="#ffffff">CCTV</text>
+    </g>
+    <g transform="translate(562 0)">
+      <rect width="162" height="52" rx="12" fill="#087d6c"/>
+      <text x="20" y="33" fill="#ffffff">Security</text>
+    </g>
+  </g>
+
+  <g transform="translate(80 464)" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="750">
+    <text x="0" y="0">Free local enquiries:</text>
+    <text x="180" y="0" fill="#087d6c">johndevaney1@hotmail.com</text>
+  </g>
+</svg>
