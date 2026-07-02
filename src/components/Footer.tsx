@@ -38,8 +38,8 @@ export function Footer() {
             <p>Phone: Add your phone number</p>
             <p>
               Email:{' '}
-              <a href="mailto:johndevaney1@hotmail.com" className="hover:text-white">
-                johndevaney1@hotmail.com
+              <a href="mailto:info@rdns.ie" className="hover:text-white">
+                info@rdns.ie
               </a>
             </p>
             <p>Location: Mayo, Ireland and surrounding areas</p>

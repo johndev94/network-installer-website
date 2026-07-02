@@ -17,7 +17,7 @@ export function ContactForm() {
 
     try {
       const response = await fetch(
-        'https://formsubmit.co/ajax/johndevaney1@hotmail.com',
+        'https://formsubmit.co/ajax/info@rdns.ie',
         {
           method: 'POST',
           headers: {
@@ -60,8 +60,8 @@ export function ContactForm() {
             </p>
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
               <Mail className="text-brand-600" size={20} aria-hidden="true" />
-              <a href="mailto:johndevaney1@hotmail.com" className="hover:text-brand-700">
-                johndevaney1@hotmail.com
+              <a href="mailto:info@rdns.ie" className="hover:text-brand-700">
+                info@rdns.ie
               </a>
             </p>
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
@@ -178,7 +178,7 @@ export function ContactForm() {
           )}
           {status === 'error' && (
             <p className="mt-4 text-sm font-semibold text-red-700" role="alert">
-              We could not send your enquiry. Please email johndevaney1@hotmail.com directly.
+              We could not send your enquiry. Please email info@rdns.ie directly.
             </p>
           )}
         </form>
