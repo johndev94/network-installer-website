@@ -1,4 +1,4 @@
-import { Menu, Network, X } from 'lucide-react';
+import { Menu, Network, Phone, X } from 'lucide-react';
 import { useState } from 'react';
 
 const navItems = [
@@ -41,12 +41,21 @@ export function Navbar() {
           ))}
         </div>
 
-        <a
-          href="#contact"
-          className="hidden rounded-md bg-brand-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700 lg:inline-flex"
-        >
-          Request a Quote
-        </a>
+        <div className="hidden items-center gap-4 lg:flex">
+          <a
+            href="tel:+353894566776"
+            className="inline-flex items-center gap-2 text-sm font-bold text-ink transition hover:text-brand-700"
+          >
+            <Phone size={18} aria-hidden="true" />
+            089 456 6776
+          </a>
+          <a
+            href="#contact"
+            className="rounded-md bg-brand-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700"
+          >
+            Request a Quote
+          </a>
+        </div>
 
         <button
           type="button"
@@ -72,6 +81,14 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
+            <a
+              href="tel:+353894566776"
+              className="mt-2 inline-flex items-center gap-2 rounded-md border-t border-line px-3 pt-4 text-sm font-bold text-ink transition hover:text-brand-700"
+              onClick={() => setOpen(false)}
+            >
+              <Phone size={18} aria-hidden="true" />
+              089 456 6776
+            </a>
           </div>
         </div>
       )}
