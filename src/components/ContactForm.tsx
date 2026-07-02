@@ -56,7 +56,9 @@ export function ContactForm() {
           <div className="mt-8 space-y-4">
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
               <Phone className="text-brand-600" size={20} aria-hidden="true" />
-              Phone: Add your phone number
+              <a href="tel:+353894566776" className="hover:text-brand-700">
+                089 456 6776
+              </a>
             </p>
             <p className="flex items-center gap-3 text-sm font-semibold text-ink">
               <Mail className="text-brand-600" size={20} aria-hidden="true" />

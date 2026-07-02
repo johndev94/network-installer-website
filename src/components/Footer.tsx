@@ -35,7 +35,12 @@ export function Footer() {
             Contact
           </h2>
           <div className="mt-4 space-y-2 text-sm text-slate-300">
-            <p>Phone: Add your phone number</p>
+            <p>
+              Phone:{' '}
+              <a href="tel:+353894566776" className="hover:text-white">
+                089 456 6776
+              </a>
+            </p>
             <p>
               Email:{' '}
               <a href="mailto:info@rdns.ie" className="hover:text-white">
