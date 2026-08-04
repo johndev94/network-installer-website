@@ -57,7 +57,7 @@ export function WorkCarousel() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-lg border border-line bg-ink shadow-soft lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid overflow-hidden rounded-3xl border border-line bg-ink shadow-soft lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[330px] lg:min-h-[520px]">
             <img
               key={slide.image}

@@ -12,7 +12,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/90 shadow-[0_8px_30px_rgba(16,32,51,0.05)] backdrop-blur-xl">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Primary navigation"

@@ -1,19 +1,36 @@
+import { useCallback, useState } from 'react';
 import { ContactForm } from './components/ContactForm';
+import { FAQ } from './components/FAQ';
 import { FeaturedPricingCarousel } from './components/FeaturedPricingCarousel';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { Navbar } from './components/Navbar';
 import { ServicesGrid } from './components/ServicesGrid';
+import { ServiceDetailsDialog } from './components/ServiceDetailsDialog';
 import { WorkCarousel } from './components/WorkCarousel';
+import type { Service } from './data/services';
 
 function App() {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [quoteServiceId, setQuoteServiceId] = useState('');
+
+  const closeDetails = useCallback(() => setSelectedService(null), []);
+
+  const requestQuote = (service: Service) => {
+    setQuoteServiceId(service.id);
+    setSelectedService(null);
+    window.setTimeout(() => {
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
       <main>
         <Hero />
         <WorkCarousel />
-        <ServicesGrid />
+        <ServicesGrid onViewDetails={setSelectedService} />
 
         <section id="prices" className="bg-slate-50 py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,13 +46,19 @@ function App() {
                 equipment, cabling and larger installations are quoted clearly.
               </p>
             </div>
-            <FeaturedPricingCarousel />
+            <FeaturedPricingCarousel onViewDetails={setSelectedService} />
           </div>
         </section>
 
-        <ContactForm />
+        <FAQ />
+        <ContactForm selectedServiceId={quoteServiceId} />
       </main>
       <Footer />
+      <ServiceDetailsDialog
+        service={selectedService}
+        onClose={closeDetails}
+        onRequestQuote={requestQuote}
+      />
     </div>
   );
 }

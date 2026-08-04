@@ -15,6 +15,44 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    id: 'cctv-installation',
+    name: 'CCTV Installation',
+    category: 'business',
+    shortDescription:
+      'Carefully planned camera coverage with secure recording and remote viewing.',
+    fullDescription:
+      'A professionally planned CCTV system for homes and small businesses, covering camera placement, secure recording, remote viewing and a clear handover.',
+    priceLabel: 'Custom quote',
+    priceFrom: 0,
+    priceUnit: 'following a site survey',
+    features: [
+      'Site and coverage review',
+      'Camera placement planning',
+      'Secure recorder setup',
+      'Remote viewing configuration',
+      'Testing and customer handover',
+    ],
+  },
+  {
+    id: 'network-security-review',
+    name: 'Network Security',
+    category: 'business',
+    shortDescription:
+      'Practical protection for routers, firewalls, remote access and connected systems.',
+    fullDescription:
+      'A practical review and improvement of the network controls protecting your business, with sensible changes explained clearly and documented for future support.',
+    priceLabel: 'Custom quote',
+    priceFrom: 0,
+    priceUnit: 'based on your network',
+    features: [
+      'Router and firewall review',
+      'Secure remote access checks',
+      'Guest and staff network separation',
+      'Administrator access review',
+      'Clear recommendations and handover',
+    ],
+  },
+  {
     id: 'wifi-health-check',
     name: 'WiFi Health Check',
     category: 'business',

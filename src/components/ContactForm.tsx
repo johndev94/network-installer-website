@@ -1,11 +1,20 @@
 import { CheckCircle2, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 import contactQuoteImage from '../assets/site/section-contact-quote.jpg';
 import { services } from '../data/services';
 
-export function ContactForm() {
+type ContactFormProps = {
+  selectedServiceId?: string;
+};
+
+export function ContactForm({ selectedServiceId = '' }: ContactFormProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [serviceId, setServiceId] = useState(selectedServiceId);
+
+  useEffect(() => {
+    setServiceId(selectedServiceId);
+  }, [selectedServiceId]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -143,7 +152,8 @@ export function ContactForm() {
               <select
                 className="rounded-md border border-line bg-white px-3 py-3 text-sm font-normal outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                 name="service"
-                defaultValue=""
+                value={serviceId}
+                onChange={(event) => setServiceId(event.target.value)}
               >
                 <option value="" disabled>
                   Select a service

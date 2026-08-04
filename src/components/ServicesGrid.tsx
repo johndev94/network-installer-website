@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { services } from '../data/services';
 import { ServiceCard } from './ServiceCard';
+import type { Service } from '../data/services';
 
 const overviewServices = [
   {
@@ -28,7 +29,7 @@ const overviewServices = [
     name: 'CCTV Installation',
     description:
       'Professionally planned camera systems with clear coverage and remote viewing.',
-    serviceId: 'small-business-network-setup',
+    serviceId: 'cctv-installation',
     icon: Camera,
   },
   {
@@ -42,7 +43,7 @@ const overviewServices = [
     name: 'Network Security',
     description:
       'Firewalls, secure remote access and practical protection for connected systems.',
-    serviceId: 'small-business-network-setup',
+    serviceId: 'network-security-review',
     icon: ShieldCheck,
   },
   {
@@ -54,9 +55,14 @@ const overviewServices = [
   },
 ];
 
-export function ServicesGrid() {
+type ServicesGridProps = {
+  onViewDetails: (service: Service) => void;
+};
+
+export function ServicesGrid({ onViewDetails }: ServicesGridProps) {
   return (
-    <section id="services" className="bg-white py-16 sm:py-20">
+    <section id="services" className="relative overflow-hidden bg-white py-16 sm:py-24">
+      <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-brand-50 blur-3xl" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
@@ -86,7 +92,8 @@ export function ServicesGrid() {
                 description={item.description}
                 priceLabel={service.priceLabel}
                 priceUnit={service.priceUnit}
-                href={`#${service.id}`}
+                service={service}
+                onViewDetails={onViewDetails}
               />
             );
           })}

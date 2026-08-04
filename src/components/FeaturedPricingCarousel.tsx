@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { services } from '../data/services';
+import type { Service } from '../data/services';
 
 const featuredIds = [
   'business-wifi-upgrade',
@@ -13,7 +14,11 @@ const featuredServices = featuredIds
   .map((id) => services.find((service) => service.id === id))
   .filter((service) => service !== undefined);
 
-export function FeaturedPricingCarousel() {
+type FeaturedPricingCarouselProps = {
+  onViewDetails: (service: Service) => void;
+};
+
+export function FeaturedPricingCarousel({ onViewDetails }: FeaturedPricingCarouselProps) {
   const [active, setActive] = useState(0);
   const service = featuredServices[active];
 
@@ -32,7 +37,7 @@ export function FeaturedPricingCarousel() {
   }
 
   return (
-    <div className="mt-10 overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+    <div className="mt-10 overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
       <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
         <div className="bg-gradient-to-br from-blue-700 to-brand-700 p-6 text-white sm:p-8">
           <p className="text-sm font-bold uppercase tracking-wider text-brand-100">
@@ -66,12 +71,13 @@ export function FeaturedPricingCarousel() {
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <a
-              href={`#${service.id}`}
-              className="inline-flex justify-center rounded-md bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-700"
+            <button
+              type="button"
+              className="inline-flex justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-brand-700"
+              onClick={() => onViewDetails(service)}
             >
               View details
-            </a>
+            </button>
             <div className="flex items-center justify-between gap-4 sm:justify-end">
               <div className="flex gap-2">
                 {featuredServices.map((item, index) => (
