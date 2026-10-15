@@ -27,6 +27,34 @@ $env:PORT='80'; npm.cmd run serve
 
 The server binds to `0.0.0.0`, so other devices on your network can reach it using this computer's LAN IP address. Forward external port `80` on your router to this computer's LAN IP and port `80`. Make sure Windows Firewall allows inbound TCP traffic on port `80`.
 
+## Host with IIS
+
+Point the IIS site's physical path at this project's `dist` folder. The tracked
+source for the IIS configuration is `public/web.config`; Vite copies it into
+`dist/web.config` on every production build. Include `public/web.config` in your
+Git commit, not the ignored `dist` folder.
+
+The minimal configuration does not require IIS URL Rewrite. Do not restore the
+old HTTP-to-HTTPS `<rewrite>` rule on a server where that module is not registered:
+IIS rejects it with HTTP 500.19, error code `0x8007000d`. Existing IIS HTTPS
+bindings and certificates are separate from this file and remain unchanged.
+
+After pushing the fix, run these commands from the website checkout on the IIS
+server, or ensure the automatic deployment performs the equivalent steps:
+
+```powershell
+git pull --ff-only origin main
+npm.cmd ci
+npm.cmd run build
+```
+
+A Git pull alone does not rebuild `dist`. If the deployment builds in a staging
+folder and excludes `web.config` when publishing, it must also deploy the repaired
+configuration to the live IIS folder. Back up the existing live `web.config`
+outside the web root before replacing it; do not leave the old rewrite rule in
+place. For the RDNS server, the live folder is
+`C:\network-installer-website\dist`.
+
 ## Edit service prices
 
 All service names, descriptions, features, prices, and badges live in:
