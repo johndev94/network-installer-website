@@ -51,7 +51,7 @@ export function ServiceDetailsDialog({
           <button
             type="button"
             autoFocus
-            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
             aria-label="Close service details"
             onClick={onClose}
           >

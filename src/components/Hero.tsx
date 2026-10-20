@@ -1,96 +1,66 @@
-import {
-  CheckCircle2,
-  ShieldCheck,
-  Wifi,
-} from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Camera, CheckCircle2, Network, ShieldCheck, Wifi } from 'lucide-react';
 import heroImage from '../assets/site/hero-network-installation.jpg';
 
-const trustBullets = [
-  'Local service in Mayo',
-  'Networking and WiFi',
-  'Security and CCTV',
-];
+const trustBullets = ['Local service in Mayo', 'Homes and businesses', 'Clear, practical advice'];
 
 export function Hero() {
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden bg-ink"
-    >
+    <section id="home" className="hero-scene relative overflow-hidden bg-ink">
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="A tidy small business network cabinet with router, switch, WiFi access point, and diagnostic laptop"
-          className="h-full w-full object-cover opacity-45"
+          className="hero-photo h-full w-full object-cover"
+          fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30" />
+        <div className="hero-shade absolute inset-0" />
       </div>
-
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:min-h-[760px] lg:grid-cols-[0.98fr_1.02fr] lg:px-8 lg:py-24">
-        <div className="flex flex-col justify-center">
-          <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm font-bold text-brand-100 shadow-sm backdrop-blur">
+      <div className="hero-inner relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="hero-copy">
+          <p className="hero-intro flex items-center gap-2 text-sm font-bold text-brand-100">
             <ShieldCheck size={18} aria-hidden="true" />
             Ryan &amp; Devaney Network Solutions
           </p>
-          <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
-            Networks, security and CCTV installed properly
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-            RDNS provides reliable WiFi, network installation, cybersecurity
-            solutions and CCTV systems for homes and businesses across Mayo.
+          <h1 className="hero-brand font-black text-white">RDNS</h1>
+          <p className="hero-statement font-black text-white">
+            <span className="sr-only">Connected. Secure. Protected.</span>
+            <span className="rotating-words" aria-hidden="true">
+              <span>Connected.</span>
+              <span>Secure.</span>
+              <span>Protected.</span>
+            </span>
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-md bg-brand-600 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-brand-700"
-            >
-              Request a Quote
+          <p className="hero-description mt-5 max-w-lg text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+            Reliable WiFi, secure networks and CCTV.
+            Professionally installed for homes and businesses across Mayo.
+          </p>
+          <div className="hero-actions mt-7 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" className="hero-primary inline-flex items-center justify-center gap-3 rounded-md bg-brand-600 px-5 py-3 text-sm font-bold text-white hover:bg-brand-700">
+              Request a Quote <ArrowUpRight size={18} aria-hidden="true" />
             </a>
-            <a
-              href="#prices"
-              className="inline-flex items-center justify-center rounded-md border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
-            >
-              Explore Our Services
+            <a href="#services" className="inline-flex items-center justify-center gap-3 rounded-md border border-white/40 bg-black/15 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/15">
+              Explore Our Services <ArrowDown size={17} aria-hidden="true" />
             </a>
           </div>
-          <ul className="mt-8 grid gap-3 text-sm font-semibold text-white sm:grid-cols-2">
+          <ul className="hero-trust mt-7 flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold text-white sm:text-sm">
             {trustBullets.map((bullet) => (
               <li key={bullet} className="flex items-center gap-2">
-                <CheckCircle2
-                  className="shrink-0 text-brand-100"
-                  size={18}
-                  aria-hidden="true"
-                />
+                <CheckCircle2 className="shrink-0 text-brand-100" size={16} aria-hidden="true" />
                 {bullet}
               </li>
             ))}
           </ul>
         </div>
-
-        <div className="flex items-end justify-center lg:justify-end">
-          <div className="w-full max-w-md rounded-lg border border-white/15 bg-white/10 p-5 text-white shadow-soft backdrop-blur-md">
-            <div className="mb-5 flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm text-slate-200">Typical site visit</p>
-                <h2 className="mt-1 text-2xl font-black">
-                  Connected. Secure. Protected.
-                </h2>
+        <div className="connection-map" aria-hidden="true">
+          <div className="connection-hub"><Network size={28} strokeWidth={1.5} /></div>
+          <div className="connection-routes">
+            {[{ icon: Wifi, label: 'WiFi' }, { icon: ShieldCheck, label: 'Security' }, { icon: Camera, label: 'CCTV' }].map(({ icon: Icon, label }) => (
+              <div className="connection-route" key={label}>
+                <span className="connection-line"><i /></span>
+                <Icon size={22} strokeWidth={1.5} />
+                <span>{label}</span>
               </div>
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-brand-500 text-white">
-                <Wifi size={27} aria-hidden="true" />
-              </span>
-            </div>
-            <div className="grid grid-cols-3 gap-3">
-              {['WiFi', 'Security', 'CCTV'].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-md border border-white/15 bg-white/10 p-3"
-                >
-                  <p className="text-xs text-slate-300">{item}</p>
-                  <p className="mt-2 text-sm font-bold text-brand-100">Ready</p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </div>

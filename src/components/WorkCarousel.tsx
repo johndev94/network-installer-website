@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useMotionPaused } from './MotionEffects';
 import businessWifi from '../assets/site/carousel-business-wifi.jpg';
 import homeOffice from '../assets/site/carousel-home-office.jpg';
 import networkSupport from '../assets/site/carousel-network-support.jpg';
@@ -36,15 +37,20 @@ const slides = [
 
 export function WorkCarousel() {
   const [active, setActive] = useState(0);
+  const [hovering, setHovering] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const interacting = hovering || focused;
+  const paused = useMotionPaused();
   const slide = slides[active];
 
   useEffect(() => {
+    if (paused || interacting) return;
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
     }, 6500);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [paused, interacting, active]);
 
   const previous = () => {
     setActive((current) => (current === 0 ? slides.length - 1 : current - 1));
@@ -57,19 +63,31 @@ export function WorkCarousel() {
   return (
     <section className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-3xl border border-line bg-ink shadow-soft lg:grid-cols-[1.05fr_0.95fr]">
+        <div
+          data-reveal
+          className="grid overflow-hidden rounded-lg bg-ink lg:grid-cols-[1.05fr_0.95fr]"
+          role="region"
+          aria-label="Installation services"
+          aria-roledescription="carousel"
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+          onFocusCapture={() => setFocused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+          }}
+        >
           <div className="relative min-h-[330px] lg:min-h-[520px]">
             <img
               key={slide.image}
               src={slide.image}
               alt={slide.alt}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="work-slide-image absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-transparent lg:hidden" />
           </div>
 
           <div className="flex flex-col justify-between p-6 text-white sm:p-8 lg:p-10">
-            <div>
+            <div key={active} className="carousel-copy" aria-live={paused || interacting ? 'polite' : 'off'}>
               <p className="text-sm font-bold uppercase tracking-wider text-brand-100">
                 {slide.eyebrow}
               </p>
@@ -105,6 +123,7 @@ export function WorkCarousel() {
                         : 'w-2.5 bg-white/35 hover:bg-white/60'
                     }`}
                     aria-label={`Show slide ${index + 1}: ${item.title}`}
+                    aria-pressed={active === index}
                     onClick={() => setActive(index)}
                   />
                 ))}

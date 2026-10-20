@@ -8,6 +8,8 @@ import { Navbar } from './components/Navbar';
 import { ServicesGrid } from './components/ServicesGrid';
 import { ServiceDetailsDialog } from './components/ServiceDetailsDialog';
 import { WorkCarousel } from './components/WorkCarousel';
+import { MotionEffects } from './components/MotionEffects';
+import { ServiceTicker } from './components/ServiceTicker';
 import type { Service } from './data/services';
 
 function App() {
@@ -25,16 +27,18 @@ function App() {
   };
 
   return (
+    <MotionEffects>
     <div className="min-h-screen bg-slate-50">
       <Navbar />
       <main>
         <Hero />
+        <ServiceTicker />
         <WorkCarousel />
         <ServicesGrid onViewDetails={setSelectedService} />
 
         <section id="prices" className="bg-slate-50 py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl" data-reveal>
               <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
                 Pricing
               </p>
@@ -50,8 +54,8 @@ function App() {
           </div>
         </section>
 
-        <FAQ />
-        <ContactForm selectedServiceId={quoteServiceId} />
+        <div data-reveal><FAQ /></div>
+        <div data-reveal><ContactForm selectedServiceId={quoteServiceId} /></div>
       </main>
       <Footer />
       <ServiceDetailsDialog
@@ -60,6 +64,7 @@ function App() {
         onRequestQuote={requestQuote}
       />
     </div>
+    </MotionEffects>
   );
 }
 

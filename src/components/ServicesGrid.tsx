@@ -62,9 +62,8 @@ type ServicesGridProps = {
 export function ServicesGrid({ onViewDetails }: ServicesGridProps) {
   return (
     <section id="services" className="relative overflow-hidden bg-white py-16 sm:py-24">
-      <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-brand-50 blur-3xl" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl" data-reveal>
           <p className="text-sm font-bold uppercase tracking-wider text-brand-700">
             Services
           </p>

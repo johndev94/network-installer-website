@@ -37,9 +37,9 @@ export function FeaturedPricingCarousel({ onViewDetails }: FeaturedPricingCarous
   }
 
   return (
-    <div className="mt-10 overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
+    <div data-reveal className="mt-10 overflow-hidden rounded-lg border border-line bg-white shadow-soft">
       <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="bg-gradient-to-br from-blue-700 to-brand-700 p-6 text-white sm:p-8">
+        <div key={service.id} className="pricing-copy bg-brand-700 p-6 text-white sm:p-8">
           <p className="text-sm font-bold uppercase tracking-wider text-brand-100">
             Featured option
           </p>
@@ -90,6 +90,7 @@ export function FeaturedPricingCarousel({ onViewDetails }: FeaturedPricingCarous
                         : 'w-2.5 bg-slate-300 hover:bg-slate-400'
                     }`}
                     aria-label={`Show featured service ${index + 1}: ${item.name}`}
+                    aria-pressed={active === index}
                     onClick={() => setActive(index)}
                   />
                 ))}
